@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { Search, User } from "lucide-react";
 
+const Employees: React.FC = () => {
+        useEffect(() => {
+        document.title = "Employee Directory";
+      }, []);
 
-const Home: React.FC = () => {
-      useEffect(() => {
-      document.title = "STUEM Directory";
-    }, []);
-
-  // Data for employees and students
+  // Data for employees only
   const people = [
-    // Employees
     { name: "Adrian Santos", role: "Frontend Developer", department: "Web Development", type: "Employee" },
     { name: "Bianca Cruz", role: "Backend Developer", department: "Web Development", type: "Employee" },
     { name: "Carlo Mendoza", role: "Full-Stack Developer", department: "Software Engineering", type: "Employee" },
@@ -20,23 +18,11 @@ const Home: React.FC = () => {
     { name: "Rhea Bautista", role: "Security Engineer", department: "Cybersecurity", type: "Employee" },
     { name: "Patricia Dizon", role: "Data Analyst", department: "Data Analytics", type: "Employee" },
     { name: "Quentin Santos", role: "Data Engineer", department: "Data Analytics", type: "Employee" },
-
-    // Students
-    { name: "Jessa Morales", role: "Web Development Intern", department: "Web Development", type: "Student" },
-    { name: "Oliver Reyes", role: "UI/UX Intern", department: "Web Development", type: "Student" },
-    { name: "Hannah Lim", role: "Software Engineering Intern", department: "Software Engineering", type: "Student" },
-    { name: "Ivan Castillo", role: "QA Intern", department: "Software Engineering", type: "Student" },
-    { name: "Lara Gutierrez", role: "IT Support Intern", department: "Technical Support", type: "Student" },
-    { name: "Sean Villareal", role: "Helpdesk Intern", department: "Technical Support", type: "Student" },
-    { name: "Nicole Dela Rosa", role: "Cybersecurity Intern", department: "Cybersecurity", type: "Student" },
-    { name: "Kenneth Morales", role: "SOC Intern", department: "Cybersecurity", type: "Student" },
-    { name: "Jasmine Ortega", role: "Data Analytics Intern", department: "Data Analytics", type: "Student" },
-    { name: "Toni Herrera", role: "Data Science Intern", department: "Data Analytics", type: "Student" },
   ];
 
   // 🔍 Search state
   const [query, setQuery] = useState("");
-  const [filterBy, setFilterBy] = useState<"all" | "department" | "role" | "type">("all");
+  const [filterBy, setFilterBy] = useState<"all" | "department" | "role">("all");
 
   // 🔎 Filter logic
   const filteredPeople = people.filter((person) => {
@@ -48,15 +34,11 @@ const Home: React.FC = () => {
     if (filterBy === "role") {
       return person.role.toLowerCase().includes(q);
     }
-    if (filterBy === "type") {
-      return person.type.toLowerCase().includes(q);
-    }
     // default: search across all fields
     return (
       person.name.toLowerCase().includes(q) ||
       person.role.toLowerCase().includes(q) ||
-      person.department.toLowerCase().includes(q) ||
-      person.type.toLowerCase().includes(q)
+      person.department.toLowerCase().includes(q)
     );
   });
 
@@ -67,10 +49,10 @@ const Home: React.FC = () => {
         {/* Left side */}
         <div>
           <h2 className="text-xl font-semibold text-maroon dark:text-red-400">
-            Welcome to STUEM DIRECTORY
+            Employee Directory
           </h2>
           <p className="text-gray-600 dark:text-gray-300">
-            Students/Employee Directory
+            List of all employees
           </p>
         </div>
 
@@ -115,18 +97,11 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Grid of employee/student cards */}
+      {/* Grid of employee cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredPeople.length > 0 ? (
           filteredPeople.map((person, index) => {
-            // cycle through background colors
-            const bgColors = [
-              "bg-blue-500",
-              "bg-green-500",
-              "bg-purple-500",
-              "bg-pink-500",
-              "bg-yellow-500",
-            ];
+            const bgColors = ["bg-blue-500", "bg-green-500", "bg-purple-500", "bg-pink-500", "bg-yellow-500"];
             const bgColor = bgColors[index % bgColors.length];
 
             return (
@@ -139,25 +114,17 @@ const Home: React.FC = () => {
                            hover:scale-105 hover:shadow-md"
               >
                 {/* Profile icon */}
-                <div
-                  className={`flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full ${bgColor}`}
-                >
+                <div className={`flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full ${bgColor}`}>
                   <User className="w-6 h-6 text-white" />
                 </div>
 
                 {/* Info */}
                 <div>
-                  <h3 className="text-lg font-semibold dark:text-black">{person.name}</h3>
-                  <p className="text-sm text-gray-600 dark:text-black-400">
+                  <h3 className="text-lg font-semibold dark:text-black ">{person.name}</h3>
+                  <p className="text-sm text-gray-600 dark:text-black-300">
                     {person.role} — {person.department}
                   </p>
-                  <span
-                    className={`text-xs font-medium ${
-                      person.type === "Employee"
-                        ? "text-blue-800 dark:text-blue-700"
-                        : "text-green-800 dark:text-green-700"
-                    }`}
-                  >
+                  <span className="text-xs font-medium text-blue-800 dark:text-blue-700">
                     {person.type}
                   </span>
                 </div>
@@ -172,4 +139,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Employees;

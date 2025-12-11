@@ -5,6 +5,9 @@ import { AuthProvider } from "./context/AutContext";
 import Home from "./pages/Home";
 import "admin-lte/dist/css/adminlte.min.css"; 
 import "./index.css"; 
+import Students from "./pages/Students";
+import Employees from "./pages/Employees";
+
 
 const App: React.FC = () => {
   const [theme] = useState(localStorage.getItem("theme") || "light");
@@ -24,6 +27,8 @@ const App: React.FC = () => {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/students" element={<Students />} />
+              <Route path="/employees" element={<Employees />} />
             </Routes>
           </Layout>
         </div>

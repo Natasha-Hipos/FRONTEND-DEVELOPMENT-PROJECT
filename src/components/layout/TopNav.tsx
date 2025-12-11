@@ -22,7 +22,7 @@ const TopNav: React.FC<TopNavProps> = ({ theme, setTheme, isSidebarOpen, setIsSi
         >
           <MenuIcon size={24} />
         </button>
-        <h1 className="text-xl font-bold">Welcome, Admin</h1>
+        <h1 className="text-xl font-bold">STUEM DIRECTORY</h1>
       </div>
 
       <div className="flex items-center space-x-6">

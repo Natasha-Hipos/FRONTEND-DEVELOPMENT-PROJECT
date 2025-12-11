@@ -1,6 +1,7 @@
 import type React from "react"
 import { Link, useLocation } from "react-router-dom"
-import { HomeIcon, SettingsIcon } from "lucide-react"
+import { HomeIcon, UserIcon, UsersIcon, SettingsIcon } from "lucide-react"
+import { ShieldCheck } from "lucide-react"
 
 interface SidebarProps {
   isOpen: boolean
@@ -12,6 +13,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
 
   const menuItems = [
     { path: "/", label: "Dashboard", icon: <HomeIcon size={24} /> },
+    { path: "/students", label: "Students", icon: <UserIcon size={24} /> },
+    { path: "/employees", label: "Employees", icon: <UsersIcon size={24} /> },
     { path: "/settings", label: "Settings", icon: <SettingsIcon size={24} /> },
   ]
 
@@ -20,9 +23,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   }
 
   return (
-    <aside className="h-screen shadow-lg transition-all fixed top-0 left-0 z-50 w-64 overflow-y-auto p-2">
-      <div className="flex items-center justify-between p-3">
-        <span className="text-xl font-bold">AdminLTE</span>
+      <aside className="h-screen shadow-lg transition-all fixed top-0 left-0 z-50 w-64 overflow-y-auto p-2 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">      {/* Centered Admin header */}
+      <div className="flex flex-col items-center justify-center p-6">
+        {/* Pick any Lucide icon you like, e.g. Shield */}
+        <ShieldCheck size={30} className="text-blue-600" />
+        <span className="mt-2 text-xl font-bold">Admin</span>
       </div>
 
       <nav className="flex flex-col gap-2">
