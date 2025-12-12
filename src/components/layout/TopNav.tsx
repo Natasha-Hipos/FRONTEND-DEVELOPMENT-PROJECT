@@ -15,18 +15,21 @@ interface TopNavProps {
 const TopNav: React.FC<TopNavProps> = ({ theme, setTheme, isSidebarOpen, setIsSidebarOpen }) => {
   return (
     <header className="p-4 flex justify-between items-center shadow-md">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="flex items-center justify-center w-10 h-10 hover:bg-gray-200 dark:hover:bg-gray-800 transition rounded-lg"
         >
           <MenuIcon size={24} />
         </button>
+        <img src= "src\assets\stuem.png" alt="STUEM Logo" className="w-10 h-10"/>
         <h1 className="text-xl font-bold">STUEM DIRECTORY</h1>
       </div>
 
       <div className="flex items-center space-x-6">
-        <ThemeToggle theme={theme} setTheme={setTheme} />
+        <div className="flex items-center space-x-6 sm:space-x-4 xs:space-x-2">
+         <ThemeToggle theme={theme} setTheme={setTheme} />
+        </div>
 
         <Dropdown buttonContent={<FaBell className="text-2xl cursor-pointer" />}>
           <div className="p-3 border-b border-gray-200 dark:border-gray-700">
@@ -39,11 +42,6 @@ const TopNav: React.FC<TopNavProps> = ({ theme, setTheme, isSidebarOpen, setIsSi
 
         <Dropdown buttonContent={<FaUserCircle className="text-2xl cursor-pointer" />}>
           <ul>
-            <li>
-              <Link to="/personal-information" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
-                Show Profile
-              </Link>
-            </li>
             <li>
               <Link
                 to="/log-out"

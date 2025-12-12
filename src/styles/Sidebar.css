@@ -1,0 +1,25 @@
+/* Tablet and below: collapse sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 5rem; /* 20 = 5rem */
+  }
+
+  .sidebar .label {
+    display: none; /* hide text labels */
+  }
+}
+
+/* Mobile: collapse or hide labels */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 5rem; /* collapsed */
+  }
+  .sidebar .label {
+    display: none; /* hide text labels */
+  }
+}
+@media (max-width: 480px) {
+  .sidebar {
+    width: 0; /* hide sidebar */
+  }
+}
