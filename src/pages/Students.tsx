@@ -62,7 +62,7 @@ const Students: React.FC = () => {
           </p>
         </div>
 
-        {/* Right side: search + filters */}
+        {/* Right side, search + filters */}
         <div className="w-1/3 flex flex-col gap-3">
           {/* Search bar with icon */}
           <div className="relative">
@@ -72,7 +72,7 @@ const Students: React.FC = () => {
             />
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Search by department, role, or type..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full pl-9 pr-3 py-2 border border-gray-300 dark:border-gray-600 

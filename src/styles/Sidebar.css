@@ -23,3 +23,53 @@
     width: 0; /* hide sidebar */
   }
 }
+
+.sidebar {
+  /* desktop base */
+  width: 16rem; /* 256px */
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: width 280ms ease, max-width 280ms ease, box-shadow 280ms ease;
+  will-change: width;
+  /* keep overflow handled */
+  overflow: hidden;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 14rem; /* 224px */
+  }
+}
+
+/* small screens: avoid overly wide sidebar and keep it usable */
+@media (max-width: 640px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 60;
+    /* reduce width and constrain to viewport */
+    width: 12rem; /* 192px */
+    max-width: calc(100vw - 1rem);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    background-clip: padding-box;
+  }
+
+  /* subtle expand on hover (useful when resizing to smaller widths from desktop) */
+  .sidebar:hover {
+    width: 13.25rem; /* 212px */
+  }
+}
+
+/* make nav links animate padding/background smoothly */
+.sidebar nav a {
+  transition: padding 180ms ease, background-color 180ms ease;
+}
+
+/* ensure icons and text wrap properly when width changes */
+.sidebar .flex.items-center.justify-center.w-12.h-12,
+.sidebar span {
+  transition: opacity 180ms ease, transform 180ms ease;
+}

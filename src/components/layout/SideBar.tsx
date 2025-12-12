@@ -23,9 +23,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   }
 
   return (
-      <aside className="h-screen shadow-lg transition-all fixed top-0 left-0 z-50 w-64 overflow-y-auto p-2 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md">      {/* Centered Admin header */}
+      <aside className="sidebar fixed top-0 left-0 h-screen shadow-lg z-50 overflow-y-auto p-2 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md">
+      {/* Centered Admin header */}
       <div className="flex flex-col items-center justify-center p-6">
-        {/* Pick any Lucide icon you like, e.g. Shield */}
+        {/* with Shield icon*/}
         <ShieldCheck size={30} className="text-blue-600" />
         <span className="mt-2 text-xl font-bold">Admin</span>
       </div>

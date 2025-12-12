@@ -66,7 +66,7 @@ const Employees: React.FC = () => {
             />
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Search by department, role, or type..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full pl-9 pr-3 py-2 border border-gray-300 dark:border-gray-600 
