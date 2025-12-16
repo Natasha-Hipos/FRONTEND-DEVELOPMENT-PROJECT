@@ -66,7 +66,7 @@ const TopNav: React.FC<TopNavProps> = ({ theme, setTheme, isSidebarOpen, setIsSi
           </Dropdown>
         </div>
 
-        <img src="/src/assets/stuem.png" alt="STUEM Logo" className="w-10 h-10" />
+        <img src="/stuem.png" alt="STUEM Logo" className="w-10 h-10" />
         <h1 className="text-xl font-bold">STUEM DIRECTORY</h1>
       </div>
 
